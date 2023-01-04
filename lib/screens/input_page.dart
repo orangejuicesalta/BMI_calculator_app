@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:practice_course_hunter/calculator_brain.dart';
 import 'package:practice_course_hunter/screens/results_page.dart';
 import 'package:practice_course_hunter/widgets/icon_text_column.dart';
 import 'package:practice_course_hunter/widgets/large_bottom_button.dart';
@@ -203,10 +204,16 @@ class _InputPageState extends State<InputPage> {
             )),
             LargeButtonBottom(
                 onTap: () {
+                  CalculatorBrain calc =
+                      CalculatorBrain(height: height, weight: weight);
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return ResultsPage();
+                      return ResultsPage(
+                          bmiResult: calc.calculateBMI(),
+                          interpratation: calc.getInterpretation(),
+                          resultText: calc.getResult());
                     }),
                   );
                 },

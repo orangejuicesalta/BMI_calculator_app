@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
 class LargeButtonBottom extends StatelessWidget {
-  final dynamic onTap;
+  final VoidCallback onTap;
   final String buttonText;
 
   const LargeButtonBottom(

@@ -4,7 +4,14 @@ import 'package:practice_course_hunter/widgets/large_bottom_button.dart';
 import 'package:practice_course_hunter/widgets/reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  final String bmiResult;
+  final String resultText;
+  final String interpratation;
+  const ResultsPage(
+      {super.key,
+      required this.bmiResult,
+      required this.interpratation,
+      required this.resultText});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +24,13 @@ class ResultsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Text(
-              'Your Result',
-              style: kHeadingTitle,
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'Your Result',
+                style: kHeadingTitle,
+              ),
             ),
           ),
           Expanded(
@@ -31,17 +42,20 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    resultText,
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '18.3',
+                    bmiResult,
                     style: kBMITextStyle,
                   ),
-                  Text(
-                    'Your BMI result is quite low, you should eat more!',
-                    textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(
+                      interpratation,
+                      textAlign: TextAlign.center,
+                      style: kBodyTextStyle,
+                    ),
                   ),
                 ],
               ),
