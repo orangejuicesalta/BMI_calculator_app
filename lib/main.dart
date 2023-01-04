@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice_course_hunter/input_page.dart';
+import 'package:practice_course_hunter/screens/input_page.dart';
 
 void main() {
   runApp(const MyApp());
